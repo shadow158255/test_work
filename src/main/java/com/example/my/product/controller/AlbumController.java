@@ -53,6 +53,7 @@ public class AlbumController {
         System.out.println("my hot fix1");
         System.out.println("my hot fix12");
         System.out.println("my hot fix122");
+        System.out.println("my hot fix1223");
         albumService.deleteById(id);
         return  JsonResult.ok();
     }
