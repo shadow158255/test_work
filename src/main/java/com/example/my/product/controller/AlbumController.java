@@ -50,6 +50,7 @@ public class AlbumController {
         System.out.println("git test!");
         System.out.println("我的git test！");
         System.out.println("my hot fix");
+        System.out.println("my hot fix1");
         albumService.deleteById(id);
         return  JsonResult.ok();
     }
