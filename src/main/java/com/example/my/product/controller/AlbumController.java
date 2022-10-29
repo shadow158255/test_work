@@ -47,6 +47,7 @@ public class AlbumController {
     @PostMapping("/delete/{id}")
     public  JsonResult deleteById(@PathVariable Long id){
         log.debug("开始处理【删除相册】的请求：id={}",id);
+        System.out.println("git test!");
         albumService.deleteById(id);
         return  JsonResult.ok();
     }
