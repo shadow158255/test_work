@@ -52,12 +52,12 @@
             <artifactId>knife4j-spring-boot-starter</artifactId>
             <version>2.0.9</version>
         </dependency>
-       <!--  Spring Security：处理认证与授权
+         <!--Spring Security：处理认证与授权-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>-->
-        <!-- JJWT（Java JWT） -->
+        </dependency>
+         <!--JJWT（Java JWT） -->
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt</artifactId>

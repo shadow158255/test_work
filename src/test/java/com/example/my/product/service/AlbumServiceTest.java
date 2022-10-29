@@ -17,7 +17,7 @@ public class AlbumServiceTest {
     @Test
     void addNew(){
         AlbumAddNewDTO albumAddNewDTO = new AlbumAddNewDTO();
-        albumAddNewDTO.setName("牛牛333");
+        albumAddNewDTO.setName("牛牛444");
         albumAddNewDTO.setDescription("11");
         albumAddNewDTO.setSort(10);
         try {
@@ -26,5 +26,12 @@ public class AlbumServiceTest {
         }catch (ServiceException e){
             log.debug(e.getMessage());
         }
+    }
+
+    @Test
+    void deleteByIdTest(){
+        Long id = 4l;
+        service.deleteById(id);
+        log.debug("删除完成！");
     }
 }

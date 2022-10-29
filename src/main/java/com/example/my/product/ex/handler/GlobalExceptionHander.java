@@ -1,6 +1,8 @@
 package com.example.my.product.ex.handler;
 
 import com.example.my.product.ex.ServiceException;
+import com.example.my.product.web.JsonResult;
+import com.example.my.product.web.ServiceCode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.BindException;
 import org.springframework.validation.FieldError;
@@ -11,21 +13,28 @@ import java.util.List;
 @Slf4j
 @RestControllerAdvice
 public class GlobalExceptionHander {
+
+    public GlobalExceptionHander(){
+        log.debug("创建统一处理异常的类：GlobalExceptionHander");
+    }
+
+
     @ExceptionHandler
-    public String handleServiceException(ServiceException e){
+    public JsonResult handleServiceException(ServiceException e){
         log.debug("处理ServiceException：{}",e.getMessage());
-        return e.getMessage();
+        return JsonResult.fail(e);
     }
 
     @ExceptionHandler
-    public String handleThrowable(Throwable e){
+    public JsonResult handleThrowable(Throwable e){
         log.debug("处理Throwable");
         e.printStackTrace();
-        return "程序运行中出先意外错误，请联系系统管理员";
+        String message =  "程序运行中出先意外错误，请联系系统管理员";
+        return JsonResult.fail(ServiceCode.ERR_INTERNAL_SERVER_ERROR,message);
     }
 
     @ExceptionHandler
-    public String handlerBindException(BindException e){
+    public JsonResult handlerBindException(BindException e){
         //Spring Validation检查不通过时，将抛出BindException
         log.debug("处理BindException：{}", e.getMessage());
 
@@ -36,6 +45,6 @@ public class GlobalExceptionHander {
             stringBuilder.append(message);
         }
 
-        return stringBuilder.toString();
+        return JsonResult.fail(ServiceCode.ERR_BAD_RESULT,stringBuilder.toString());
     }
 }

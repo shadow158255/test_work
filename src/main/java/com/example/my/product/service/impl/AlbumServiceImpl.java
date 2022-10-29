@@ -57,4 +57,22 @@ public class AlbumServiceImpl implements IAlbumService, ServiceCode {
             throw new ServiceException(ServiceCode.ERR_INSERT, message);
         }
     }
+
+    @Override
+    public void deleteById(Long id) {
+        log.debug("开始处理【添加相册】的请求，参数{}",id);
+        //检查尝试删除的相册是否存在
+        Object queryResult = albumMapper.getStandardById(id);
+        if (queryResult == null){
+            throw new ServiceException(ServiceCode.ERR_NOT_FOUND,"删除相册失败");
+        }
+
+        //执行删除
+        log.debug("即使删除id为{}的相册。。",id);
+        int rows = albumMapper.deleteById(id);
+        if (rows != 1){
+            throw new ServiceException(ServiceCode.ERR_DELETE,"删除相册失败");
+        }
+        log.debug("删除完成");
+    }
 }
