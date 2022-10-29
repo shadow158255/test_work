@@ -49,8 +49,8 @@ public class AlbumController {
         log.debug("开始处理【删除相册】的请求：id={}",id);
         System.out.println("git test!");
         System.out.println("我的git test！");
-        System.out.println("我的git tes3t！");
-        System.out.println("我的 git test4");
+        System.out.println("my hot fix");
+        System.out.println("my hot fix1");
         albumService.deleteById(id);
         return  JsonResult.ok();
     }
