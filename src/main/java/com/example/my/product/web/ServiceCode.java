@@ -1,8 +1,10 @@
 package com.example.my.product.web;
 
 public interface ServiceCode {
+    /**
+     * 成功
+     */
     Integer OK = 20000;
-
     Integer ERR_BAD_RESULT = 40000;
     Integer ERR_NOT_FOUND =40400;
     Integer ERR_CONFLICT = 40900;
@@ -13,28 +15,24 @@ public interface ServiceCode {
     Integer ERR_UPDATE = 50003;
 
     /**
-     * 请求参数的格式错误
+     * 账号密码错误
      */
-    Integer ERR_BAD_REQUEST = 40000;
+    Integer ERR_ACCOUNT_PASSWORD = 50000;
     /**
-     * 未授权的访问
+     * 用户名不存在
      */
-    Integer ERR_UNAUTHORIZED = 40100;
+    Integer ERR_ACCOUNT_NOTFOUND = 50100;
     /**
-     * 未授权的访问：账号禁用
+     * 用户名已存在
      */
-    Integer ERR_UNAUTHORIZED_DISABLED = 40101;
+    Integer ERR_ACCOUNT_EXIST = 50200;
     /**
-     * 禁止访问，通常是已登录，但无权限
+     * 用户名或密码不能为空
      */
-    Integer ERR_FORBIDDEN = 40300;
+    Integer ERR_ACCOUNT_PASSWORD_NOT_NULL = 50300;
     /**
-     * 解析JWT失败：格式错误，或签名错误
+     * 账号冻结
      */
-    Integer ERR_JWT_PARSE = 60000;
-    /**
-     * 解析JWT失败：过期
-     */
-    Integer ERR_JWT_EXPIRED = 60001;
+    Integer ERR_FREEZE_AN_ACCOUNT = 50400;
 
 }

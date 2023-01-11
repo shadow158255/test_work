@@ -1,21 +1,15 @@
-# 服务器端配置
+
 server:
-  # 服务端口
   port: 9080
 
-# Spring配置
 spring:
-  # 数据源配置
   datasource:
-    # 连接数据库的URL
-    url: jdbc:mysql://localhost:3306/mall_pms?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
-    # 连接数据库的用户名
+    #url: jdbc:mysql://localhost:33088/mall_pms?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://localhost:33088/test_db?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
     username: root
-    # 连接数据库的密码
     password: root
 
-# 日志
+
 logging:
-  # 日志的显示级别
   level:
     com.example.my.product: trace

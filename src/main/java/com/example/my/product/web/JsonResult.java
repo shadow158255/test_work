@@ -31,4 +31,7 @@ public class JsonResult<T> implements Serializable {
         jsonResult.setMessage(message);
         return jsonResult;
     }
+    public static JsonResult<Void> fail(){
+        return JsonResult.fail(null);
+    }
 }

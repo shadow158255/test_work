@@ -75,30 +75,8 @@
 
 
 
-    <!--  AlbumStandardVO getStandardById(Long id);-->
-    <select id="getStandardById" resultType="com.example.my.product.pojo.vo.AlbumStandardVO">
-    /*此属性的值取决于抽象方法的返回值类型，如果是基本数据类型（例如int等），
-      则resultType属性的值就是类型名，如果是引用数据类型（例如String、Album等）
-      ，则resultType属性的值就是类型的全限定名*/
-        select
-               id,name,description,sort
 
-        from pms_album where id = #{id}
-    </select>
 
-    <!-- List<AlbumListItemVO> getList();-->
-    <select id="getList" resultMap="getListItem">
-        select
-            <include refid="selectList"></include>
-        from pms_album
-        order by id,name
-    </select>
 
-    <sql id="selectList">
-        name,description,sort
-    </sql>
 
-    <resultMap id="getListItem" type="com.example.my.product.pojo.vo.AlbumListItemVO">
-
-    </resultMap>
 </mapper>
